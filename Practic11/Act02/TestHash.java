@@ -1,14 +1,10 @@
-package ACT02;
-/**
- * Clase de prueba para la tabla hash cerrada (HashC) con sondeo lineal.
- * Inserta los valores del enunciado, muestra la tabla, elimina la clave 30
- * y busca la clave 23 antes y después de la eliminación.
- */
-public class TestHashC {
+package Practic11.Act02;
+//Clase de prueba para la tabla hash cerrada (HashC) con sondeo lineal.
+// Inserta los valores del enunciado, muestra la tabla, elimina la clave 30 y busca la clave 23 antes y después de la eliminación.
+public class TestHash {
     public static void main(String[] args) {
         HashC<String> tabla = new HashC<>(11);
-
-        // ── Inserción ─────────────────────────────────────────────────────────
+        // Inserción 
         System.out.println("=== INSERTANDO ELEMENTOS ===");
         tabla.insert(34, "Alejandro");
         tabla.insert(3,  "Beatriz");
@@ -21,28 +17,23 @@ public class TestHashC {
         tabla.insert(41, "Hugo");
         tabla.insert(16, "Irene");
         tabla.insert(34, "Alonso");    // clave duplicada → actualiza
-
-        // ── Estado inicial ────────────────────────────────────────────────────
+        // Estado inicial
         System.out.println("\n=== TABLA HASH ANTES DE ELIMINAR ===");
         System.out.print(tabla.toString());
-
-        // ── Búsqueda antes de eliminar ────────────────────────────────────────
+        // Búsqueda antes de eliminar 
         System.out.println("--- Buscando clave 23 ---");
         String encontrado = tabla.search(23);
         if (encontrado != null)
             System.out.println("  Clave 23 → " + encontrado);
         else
             System.out.println("  Clave 23 no encontrada.");
-
-        // ── Eliminación lógica de clave 30 ───────────────────────────────────
+        // Eliminación lógica de clave 30 
         System.out.println("\n--- Eliminando clave 30 ---");
         tabla.delete(30);
-
-        // ── Estado después de eliminar ────────────────────────────────────────
+        // Estado después de eliminar 
         System.out.println("\n=== TABLA HASH DESPUÉS DE ELIMINAR CLAVE 30 ===");
         System.out.print(tabla.toString());
-
-        // ── Verificación: buscar la clave eliminada ───────────────────────────
+        // Verificación: buscar la clave eliminada 
         System.out.println("--- Verificando: buscando clave 30 (eliminada) ---");
         String eliminado = tabla.search(30);
         if (eliminado != null)
